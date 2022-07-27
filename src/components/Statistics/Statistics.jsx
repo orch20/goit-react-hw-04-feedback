@@ -3,7 +3,7 @@ export const Statistics = ({ stats }) => {
 
     return (
         <>
-            {Object.key(stats).map((key, i) => (<p>{key}</p>) }
+            {Object.keys(stats).map((key, i) => (<p key={i} >{key}: {stats[key]}</p>)) }
         </>
     )
 };

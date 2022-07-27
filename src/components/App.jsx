@@ -12,6 +12,14 @@ export class App extends Component {
     bad: 0,
   };
 
+  handleClick = (event) => { 
+    const name  = event.target.textContent;
+    this.setState((prevState) => ({
+      [name]: prevState[name] + 1,
+    }));
+    console.log('event', name);
+  }
+  
 
 
 
@@ -19,7 +27,7 @@ export class App extends Component {
     return (
       <>
         <Section title={'Please leave feedback'} />
-        <Button option={this.state} />
+        <Button handleClick={this.handleClick} option={this.state} />
         <Section title={'Statistics'} />
         <Statistics stats={this.state}/>
       </>

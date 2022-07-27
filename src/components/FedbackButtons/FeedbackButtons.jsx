@@ -1,11 +1,11 @@
 import PropTypes from 'prop-types';
 
-export const Button = ({ option }) => {
+export const Button = ({ option, handleClick }) => {
        console.log(option);
     return (
         <>
             {Object.keys(option).map((name, i) => (
-                <button key={i}>{name}</button>))
+                <button type='button' onClick={handleClick} key={i}>{name}</button>))
             }
         </>
     );
