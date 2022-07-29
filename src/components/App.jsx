@@ -19,9 +19,13 @@ export class App extends Component {
     }));
     console.log('event', name);
   }
+
+    
+
+  countTotalFeedback = () => Object.values(this.state).reduce((acc, feedback) => acc + feedback);
+
+  countPositiveFeedbackPercentage = () => Math.round(this.state.good / this.countTotalFeedback() * 100) || 0;
   
-
-
 
   render() {
     return (
@@ -29,7 +33,7 @@ export class App extends Component {
         <Section title={'Please leave feedback'} />
         <Button handleClick={this.handleClick} option={this.state} />
         <Section title={'Statistics'} />
-        <Statistics stats={this.state}/>
+        <Statistics stats={this.state} total={this.countTotalFeedback()} percentage={this.countPositiveFeedbackPercentage()}/>
       </>
     )
   }
