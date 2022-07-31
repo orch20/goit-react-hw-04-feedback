@@ -2,8 +2,8 @@
 import React, { Component } from 'react'
 import { Section } from './Section/Section';
 import { FeedbackOptions } from '../components/FedbackButtons/FeedbackButtons';
-import { Statistics } from '../components/Statistics/Statistics'
-import styled from "styled-components";
+import { Statistics } from '../components/Statistics/Statistics';
+import { Container } from './Conteiner';
 
 export class App extends Component {
   // static propTypes = {}
@@ -43,12 +43,3 @@ export class App extends Component {
 }
 
 
-const Container = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 350px;
-  margin: 30px auto;
-  border: 1px solid #ccc;
-  border-radius: 5px;
-  background-color: #a7baf5cd;`
