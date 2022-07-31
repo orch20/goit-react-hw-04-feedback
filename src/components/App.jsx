@@ -1,8 +1,9 @@
 // import PropTypes from 'prop-types'
 import React, { Component } from 'react'
 import { Section } from './Section/Section';
-import { Button } from '../components/FedbackButtons/FeedbackButtons';
+import { FeedbackOptions } from '../components/FedbackButtons/FeedbackButtons';
 import { Statistics } from '../components/Statistics/Statistics'
+import styled from "styled-components";
 
 export class App extends Component {
   // static propTypes = {}
@@ -30,13 +31,24 @@ export class App extends Component {
   render() {
     return (
       <>
+        <Container>
         <Section title={'Please leave feedback'} />
-        <Button handleClick={this.handleClick} option={this.state} />
+        <FeedbackOptions handleClick={this.handleClick} option={this.state} />
         <Section title={'Statistics'} />
         <Statistics stats={this.state} total={this.countTotalFeedback()} percentage={this.countPositiveFeedbackPercentage()}/>
+        </Container>
       </>
     )
   }
 }
 
 
+const Container = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 350px;
+  margin: 30px auto;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #a7baf5cd;`

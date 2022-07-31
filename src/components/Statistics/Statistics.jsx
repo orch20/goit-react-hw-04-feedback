@@ -1,7 +1,7 @@
-import {Notification} from './Notification'
+import PropTypes from 'prop-types';
+import { Notification } from './Notification'
 
 export const Statistics = ({ stats, total, percentage}) => {
-    console.log('total :>> ', Object.values(stats).some(value => value > 0));
     const isPositive = Object.values(stats).some(value => value > 0);
 
     return (
@@ -16,3 +16,13 @@ export const Statistics = ({ stats, total, percentage}) => {
         </>
     );
 };
+
+Statistics.propTypes = {
+    stats: PropTypes.shape({
+        good: PropTypes.number.isRequired,
+        neutral: PropTypes.number.isRequired,
+        bad: PropTypes.number.isRequired,
+    }).isRequired,
+    total: PropTypes.number.isRequired,
+    percentage: PropTypes.number.isRequired,
+}
